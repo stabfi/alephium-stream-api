@@ -1,0 +1,17 @@
+[package]
+name = "alephium-stream-api"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = ["crates/*"]
+
+[workspace.dependencies]
+config = { path = "crates/config" }
+model = { path = "crates/model" }
+route = { path = "crates/route" }
+service = { path = "crates/service" }
+
+[dependencies]
+config.workspace = true
+route.workspace = true
