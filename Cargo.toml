@@ -11,6 +11,7 @@ config = { path = "crates/config" }
 model = { path = "crates/model" }
 route = { path = "crates/route" }
 service = { path = "crates/service" }
+axum = "0.7.5"
 
 [dependencies]
 config.workspace = true
