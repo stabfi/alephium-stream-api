@@ -5,8 +5,8 @@ use mongodb::bson::{doc, Bson};
 use mongodb::Collection;
 
 pub trait TokenService {
-    async fn new(&self, token: Token) -> Result<Token, ServiceError>;
-    async fn get(&self, token_id: &str) -> Result<Option<Token>, ServiceError>;
+    async fn new(&self, token: Token) -> Result<Bson, ServiceError>;
+    async fn get(&self, token_id: &str) -> Result<Token, ServiceError>;
     async fn list(&self) -> Result<Vec<Token>, ServiceError>;
 }
 

@@ -4,14 +4,14 @@ use model::stream::Stream;
 use mongodb::bson::doc;
 use mongodb::Collection;
 
-#[derive(Debug, Copy)]
+#[derive(Debug, Clone, Copy)]
 pub enum StreamRole {
     Creator,
     Recipient,
 }
 
 pub trait StreamService {
-    async fn get(&self, stream_id: &str) -> Result<Option<Stream>, ServiceError>;
+    async fn get(&self, stream_id: &str) -> Result<Stream, ServiceError>;
     async fn list(&self, address: &str, role: StreamRole) -> Result<Vec<Stream>, ServiceError>;
 }
 
