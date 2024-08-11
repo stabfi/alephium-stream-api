@@ -12,6 +12,7 @@ model = { path = "crates/model" }
 route = { path = "crates/route" }
 service = { path = "crates/service" }
 axum = { version = "0.7.5", features = ["macros"] }
+mongodb = { version = "3.0.1", features = ["rustls-tls"] }
 
 [dependencies]
 axum.workspace = true
