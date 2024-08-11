@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+async-trait = "0.1.81"
 futures = "0.3.30"
 model.workspace = true
 mongodb = { version = "3.0.1", features = ["rustls-tls"] }

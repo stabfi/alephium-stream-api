@@ -4,6 +4,7 @@ use model::token::Token;
 use mongodb::bson::{doc, Bson};
 use mongodb::Collection;
 
+#[async_trait::async_trait]
 pub trait TokenService {
     async fn new(&self, token: Token) -> Result<Bson, ServiceError>;
     async fn get(&self, token_id: &str) -> Result<Token, ServiceError>;
@@ -14,6 +15,7 @@ pub struct TokenServiceImpl {
     pub collection: Collection<Token>,
 }
 
+#[async_trait::async_trait]
 impl TokenService for TokenServiceImpl {
     async fn new(&self, token: Token) -> Result<Bson, ServiceError> {
         let result = self.collection.insert_one(token).await?;
