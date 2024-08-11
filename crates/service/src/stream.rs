@@ -12,8 +12,8 @@ pub enum StreamRole {
 
 #[async_trait::async_trait]
 pub trait StreamService {
-    async fn get(&self, stream_id: u32) -> Result<Stream, ServiceError>;
-    async fn list(
+    async fn get_one(&self, stream_id: u32) -> Result<Stream, ServiceError>;
+    async fn get_all(
         &self,
         address: &str,
         role: StreamRole,
@@ -27,7 +27,7 @@ pub struct StreamServiceImpl {
 
 #[async_trait::async_trait]
 impl StreamService for StreamServiceImpl {
-    async fn get(&self, stream_id: u32) -> Result<Stream, ServiceError> {
+    async fn get_one(&self, stream_id: u32) -> Result<Stream, ServiceError> {
         let filter = doc! { "stream_id": stream_id };
         let stream = self
             .collection
@@ -37,7 +37,7 @@ impl StreamService for StreamServiceImpl {
         Ok(stream)
     }
 
-    async fn list(
+    async fn get_all(
         &self,
         address: &str,
         role: StreamRole,
