@@ -1,6 +1,7 @@
 [database]
-uri = "mongodb://localhost:27017/alephium-stream"
+uri = "mongodb://127.0.0.1:27017"
+database = "alephium-stream"
 
-[api_config]
+[server]
 host = "127.0.0.1"
 port = 8080

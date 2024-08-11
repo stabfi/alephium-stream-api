@@ -5,10 +5,11 @@ use serde::Deserialize;
 #[derive(Debug, Deserialize)]
 pub struct Database {
     pub uri: String,
+    pub database: String,
 }
 
 #[derive(Debug, Deserialize)]
-pub struct APIConfig {
+pub struct Server {
     pub host: String,
     pub port: u32,
 }
@@ -16,7 +17,7 @@ pub struct APIConfig {
 #[derive(Debug, Deserialize)]
 pub struct Config {
     pub database: Database,
-    pub api_config: APIConfig,
+    pub server: Server,
 }
 
 pub fn load_config() -> Result<Config, figment::Error> {
