@@ -7,3 +7,4 @@ edition = "2021"
 serde = { version = "1.0.205", features = ["derive"] }
 axum.workspace = true
 service.workspace = true
+model.workspace = true
