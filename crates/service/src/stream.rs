@@ -27,6 +27,7 @@ pub struct StreamServiceImpl {
 
 #[async_trait::async_trait]
 impl StreamService for StreamServiceImpl {
+    #[tracing::instrument(name = "get_one_stream", skip(self))]
     async fn get_one(&self, stream_id: u32) -> Result<Stream, ServiceError> {
         let filter = doc! { "stream_id": stream_id };
         let stream = self
@@ -37,6 +38,7 @@ impl StreamService for StreamServiceImpl {
         Ok(stream)
     }
 
+    #[tracing::instrument(name = "get_all_streams", skip(self))]
     async fn get_all(
         &self,
         address: &str,
@@ -47,7 +49,13 @@ impl StreamService for StreamServiceImpl {
             StreamRole::Creator => doc! { "creator": address },
             StreamRole::Recipient => doc! { "recipient": address },
         };
-        let streams = self.collection.find(filter).skip(skip).await?;
-        Ok(streams.try_collect().await?)
+        let streams = self
+            .collection
+            .find(filter)
+            .skip(skip)
+            .await?
+            .try_collect()
+            .await?;
+        Ok(streams)
     }
 }
