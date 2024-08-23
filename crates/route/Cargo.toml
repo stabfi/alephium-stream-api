@@ -8,3 +8,6 @@ serde = { version = "1.0.205", features = ["derive"] }
 axum.workspace = true
 service.workspace = true
 model.workspace = true
+axum-tracing-opentelemetry.workspace = true
+tracing.workspace = true
+tracing-opentelemetry-instrumentation-sdk.workspace = true
