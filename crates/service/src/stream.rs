@@ -27,7 +27,7 @@ pub struct StreamServiceImpl {
 
 #[async_trait::async_trait]
 impl StreamService for StreamServiceImpl {
-    #[tracing::instrument(name = "get_one_stream", skip(self))]
+    #[tracing::instrument(name = "stream_service::get_one", skip(self))]
     async fn get_one(&self, stream_id: u32) -> Result<Stream, ServiceError> {
         let filter = doc! { "stream_id": stream_id };
         let stream = self
@@ -38,7 +38,7 @@ impl StreamService for StreamServiceImpl {
         Ok(stream)
     }
 
-    #[tracing::instrument(name = "get_all_streams", skip(self))]
+    #[tracing::instrument(name = "stream_service::get_all", skip(self))]
     async fn get_all(
         &self,
         address: &str,
