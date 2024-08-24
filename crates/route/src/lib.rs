@@ -1,5 +1,6 @@
 use axum::extract::FromRef;
 use axum::Router;
+use axum_tracing_opentelemetry::middleware;
 use service::stream::StreamService;
 use service::token::TokenService;
 use std::sync::Arc;
@@ -19,5 +20,7 @@ pub fn router(state: AppState) -> Router {
         .route("/streams", axum::routing::get(stream::get_all))
         .route("/streams/:id", axum::routing::get(stream::get_one))
         .route("/tokens", axum::routing::get(token::get_all))
+        .layer(middleware::OtelInResponseLayer::default())
+        .layer(middleware::OtelAxumLayer::default())
         .with_state(state)
 }
