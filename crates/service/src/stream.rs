@@ -12,7 +12,7 @@ pub enum StreamRole {
 
 #[async_trait::async_trait]
 pub trait StreamService {
-    async fn get_one(&self, stream_id: u32) -> Result<Stream, ServiceError>;
+    async fn get_one(&self, stream_hash: String) -> Result<Stream, ServiceError>;
     async fn get_all(
         &self,
         address: &str,
@@ -28,8 +28,8 @@ pub struct StreamServiceImpl {
 #[async_trait::async_trait]
 impl StreamService for StreamServiceImpl {
     #[tracing::instrument(name = "stream_service::get_one", skip(self))]
-    async fn get_one(&self, stream_id: u32) -> Result<Stream, ServiceError> {
-        let filter = doc! { "stream_id": stream_id };
+    async fn get_one(&self, stream_hash: String) -> Result<Stream, ServiceError> {
+        let filter = doc! { "hash": stream_hash };
         let stream = self
             .collection
             .find_one(filter)

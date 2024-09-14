@@ -50,9 +50,9 @@ pub async fn get_all(
 
 pub async fn get_one(
     State(state): State<AppState>,
-    Path(stream_id): Path<u32>,
+    Path(stream_hash): Path<String>,
 ) -> Result<Json<Stream>, ApiError> {
-    let stream = state.stream_service.get_one(stream_id).await?;
+    let stream = state.stream_service.get_one(stream_hash).await?;
 
     Ok(Json(stream))
 }
