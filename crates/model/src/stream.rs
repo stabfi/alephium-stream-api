@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 pub enum Status {
     Active,
     Canceled,
+    Completed,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -38,6 +39,8 @@ pub struct Config {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Stream {
     pub id: u64,
+    pub hash: String,
+
     pub status: Status,
 
     pub creator: String,
