@@ -17,7 +17,10 @@ pub trait ContractsGroup {
 
 #[async_trait::async_trait]
 impl ContractsGroup for ApiClient {
-    async fn call_contract(&self, body: ContractCallBody) -> crate::ApiResult<ContractCallResponse> {
+    async fn call_contract(
+        &self,
+        body: ContractCallBody,
+    ) -> crate::ApiResult<ContractCallResponse> {
         self.request(
             Method::POST,
             "contracts/call-contract".to_string(),
