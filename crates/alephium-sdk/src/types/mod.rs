@@ -1,5 +1,4 @@
 use serde::{Deserialize, Serialize};
-use std::sync::Arc;
 
 pub mod contracts;
 pub mod events;
@@ -9,7 +8,7 @@ pub mod events;
 pub enum Value {
     String(String),
     Boolean(bool),
-    Array(Arc<Vec<Val>>),
+    Array(Vec<Val>),
 }
 
 #[derive(Deserialize, Serialize, Debug)]

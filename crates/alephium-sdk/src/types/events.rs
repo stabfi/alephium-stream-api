@@ -1,10 +1,5 @@
+use crate::types::Val;
 use serde::{Deserialize, Serialize};
-
-#[derive(Deserialize, Serialize, Debug)]
-pub struct EventField {
-    pub r#type: String,
-    pub value: String,
-}
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct Event {
@@ -14,7 +9,7 @@ pub struct Event {
     pub tx_id: String,
     #[serde(rename(deserialize = "eventIndex"))]
     pub event_index: u64,
-    pub fields: Vec<EventField>,
+    pub fields: Vec<Val>,
 }
 
 #[derive(Deserialize, Serialize, Debug)]
