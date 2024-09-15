@@ -15,9 +15,15 @@ pub struct Server {
 }
 
 #[derive(Debug, Deserialize)]
+pub struct Watchdog {
+    pub api_uri: String,
+}
+
+#[derive(Debug, Deserialize)]
 pub struct Config {
     pub database: Database,
     pub server: Server,
+    pub watchdog: Watchdog,
 }
 
 pub fn load_config() -> Result<Config, figment::Error> {
