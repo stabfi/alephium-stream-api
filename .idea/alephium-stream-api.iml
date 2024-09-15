@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/model/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/route/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/service/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/alephium-sdk/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
