@@ -1,6 +1,6 @@
 pub mod api;
 pub mod client;
-mod error;
+pub mod error;
 pub mod types;
 pub mod utils;
 
