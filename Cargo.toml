@@ -19,6 +19,7 @@ config = { path = "crates/config" }
 model = { path = "crates/model" }
 route = { path = "crates/route" }
 service = { path = "crates/service" }
+alephium-sdk = { path = "crates/alephium-sdk" }
 axum = { version = "0.7.5", features = ["macros"] }
 mongodb = { version = "3.0.1", features = ["rustls-tls"] }
 tracing = { version = "0.1.40", features = ["log"] }
