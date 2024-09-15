@@ -13,8 +13,8 @@ pub enum Value {
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct Val {
-    r#type: String,
-    value: Value,
+    pub r#type: String,
+    pub value: Value,
 }
 
 #[derive(Deserialize, Serialize, Debug)]
