@@ -7,4 +7,4 @@ host = "127.0.0.1"
 port = 8080
 
 [watchdog]
-node_uri = "https://node.testnet.alephium.org"
+api_uri = "https://node.testnet.alephium.org"
