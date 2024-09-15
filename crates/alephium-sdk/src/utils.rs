@@ -4,7 +4,7 @@ enum AddressType {
     P2PKH = 0x00,
     P2MPKH = 0x01,
     P2SH = 0x02,
-    P2C = 0x03
+    P2C = 0x03,
 }
 
 pub fn address_from_contract_id(contract_id: &'_ str) -> Result<String, FromHexError> {
